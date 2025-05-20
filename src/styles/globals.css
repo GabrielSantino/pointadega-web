@@ -1,0 +1,201 @@
+
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Cores Principais */
+:root {
+    --preto: #121212;
+    --dourado: rgb(208, 180, 10);
+    --branco: #ffffff;
+}
+
+/* Estilo Global */
+body {
+    background-color: var(--preto);
+    color: var(--branco);
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Cabeçalho */
+header {
+    width: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px 0;
+    text-align: center;
+    border-top: 35px solid var(--dourado);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+}
+
+header:hover {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+/* Botão */
+.btn {
+   background-color: var(--dourado);
+    color: var(--preto);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: pulse 1.5s infinite; 
+}
+
+.btn:hover {
+    background-color: var(--preto);
+    color: var(--dourado);
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(208, 180, 10, 0.5);
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+
+/* Produtos */
+.product-card {
+    background: var(--branco);
+    color: var(--preto);
+    padding: 15px;
+    border-radius: 10px;
+    width: 220px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUp 0.7s ease-out forwards;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(208, 180, 10, 0.6);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    max-height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.product-card img:hover {
+    transform: scale(1.15);
+    filter: brightness(1.1);
+}
+
+/* Correção de visibilidade */
+.product-card, .btn {
+    display: inline-block;
+}
+
+/* Animação Global */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+
+/* Menu */
+/* Estilo do Menu */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    align-items: center;
+    transition: max-height 0.3s;
+}
+/*vamos usart o menu-toggle */
+/* Estilo do Menu Toggle */
+/* O menu-toggle é o botão que abre e fecha o menu */
+
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    cursor: poiter;
+    z-index: 1000;
+}
+
+@media (max-width: 900px) {
+    /* Estilo do Menu */
+    nav {
+        display: none;
+        flex-direction: column;
+        background: #181818;
+        border-radius: 0 0 10px 10px;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100vw;
+        max-width: 320px;
+        box-shadow: -2px 4px 16px rgba(0, 0, 0, 0.5);
+        padding: 32px 0;
+        z-index: 1000;
+    }
+    /* Estilo do Menu Toggle */
+    .menu-toggle 
+    {
+        display: block;
+        width: 40px;
+        height: 40px;
+        background-color: var(--dourado);
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s, transform 0.3s ease;
+    }
+    nav {
+        display: flex;
+    }
+    nav.open {
+        display: flex;
+    }
+}
