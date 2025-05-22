@@ -39,3 +39,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# React Native / Expo
+node_modules/
+.expo/
+.expo-shared/
+dist/
+build/
+.env
+*.log
+*.lock
+.DS_Store
+.vscode/
+.idea/
+android/
+ios/
